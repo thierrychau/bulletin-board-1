@@ -8,4 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Board < ApplicationRecord
+
+  has_many(:posts)
+
 end
