@@ -11,4 +11,7 @@ class Board < ApplicationRecord
 
   has_many(:posts)
 
+  has_many(:active_posts, -> { active }, :class_name => "Post", :foreign_key => "board_id")
+  has_many(:expired_posts, -> { expired }, :class_name => "Post", :foreign_key => "board_id")
+
 end

@@ -13,4 +13,9 @@
 class Post < ApplicationRecord
   validates(:body, { :presence => true })
 
+  belongs_to(:board)
+
+  scope :active, -> { where({ :expires_on => (Time.current...) }) }
+  scope :expired, -> { where.not({ :expires_on => (Time.current...) }) }
+
 end
